@@ -26,45 +26,21 @@ import java.util.Collections;
 
 import com.jarvis.starklauncher.R;
 
-public class CategoryAdapter extends BaseAdapter {
+public class CategoryAdapter extends ArrayAdapter<Category> {
 	private static final String TAG = "CategoryAdapter";
 
-	private Context mContext;
+	private final LayoutInflater mInflater;
 
-	public CategoryAdapter(Context c) {
-		mContext = c;
-	}
-
-	public int getCount() {
-		return mThumbIds.length;
-	}
-
-	public Object getItem(int position) {
-		return null;
-	}
-
-	public long getItemId(int position) {
-		return 0;
+	public CategoryAdapter(Context context, ArrayList<Category> categories) {
+		super(context, 0, categories);
+		mInflater = LayoutInflater.from(context);
 	}
 
 	// create a new ImageView for each item referenced by the Adapter
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Category category;
-		if (convertView == null) {  // if it's not recycled, initialize some attributes
-		    category = new ImageView(mContext);
-		    category.setLayoutParams(new GridView.LayoutParams(85, 85));
-		    category.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		    category.setPadding(80, 80, 80, 80);
-		} else {
-		    category = (Category) convertView;
-		}
+		Category category = getItem(position);
+		category = (Category) convertView;
 
-		category.setImageResource(mThumbIds[position]);
 		return category;
-	}
-
-	private Integer[] mThumbIds;
-	for(int i = 0; i < CategoryLists.getCurrentCategories().length; i++) {
-		mThumbIds[i] = CategoryLists.getCurrentCategories()[i].getImgResource();
 	}
 }

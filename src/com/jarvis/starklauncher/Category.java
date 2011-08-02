@@ -45,5 +45,8 @@ public class Category extends ImageButton {
 	public int getImgResource() {
 		return mImgResource;
 	}
-
 	
+	public void setApps(ArrayList<ApplicationInfo> apps) {
+		//Loads the apps parameter into the disk layout
+	}
+}

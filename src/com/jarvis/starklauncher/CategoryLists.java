@@ -30,41 +30,38 @@ import com.jarvis.starklauncher.R;
 public class CategoryLists {
 	private static final String TAG = "CategoryLists";	
 
-	private static Category[] currentCategories;
-	private static Category[] allCategories = new Integer[8];
+	private static ArrayList<Category> currentCategories;
+	private static ArrayList<Category> allCategories = new ArrayList<Category>();
 
 	//Collect all available categories, see if things are sorted, etc.
-	public static boolean initiateCategories() {
+	public static void initiateCategories() {
 		Log.d(TAG, "Initiating categories");
 		
-		allCategories[0] = new Category(this, "Internet", R.drawable.webcat_img);
-		allCategories[1] = new Category(this, "Media", R.drawable.mediacat_img);
-		allCategories[2] = new Category(this, "Communication", R.drawable.socialcat_img);
-		allCategories[3] = new Category(this, "Games", R.drawable.gamescat_img);
-		allCategories[4] = new Category(this, "Productivity", R.drawable.prodcat_img);
-		allCategories[5] = new Category(this, "Root", R.drawable.rootcat_img);
-		allCategories[6] = new Category(this, "Tools", R.drawable.toolscat_img);
-		allCategories[7] = new Category(this, "Other", R.drawable.othercat_img);
+		allCategories.add(new Category(this, "Internet", R.drawable.webcat_img));
+		allCategories.add(new Category(this, "Media", R.drawable.mediacat_img));
+		allCategories.add(new Category(this, "Communication", R.drawable.socialcat_img));
+		allCategories.add(new Category(this, "Games", R.drawable.gamescat_img));
+		allCategories.add(new Category(this, "Productivity", R.drawable.prodcat_img));
+		allCategories.add(new Category(this, "Root", R.drawable.rootcat_img));
+		allCategories.add(new Category(this, "Tools", R.drawable.toolscat_img));
+		allCategories.add(new Category(this, "Other", R.drawable.othercat_img));
 
 		//For right now, currentCategories = allCategories --> will be changed
 		currentCategories = allCategories;
-
-		return true;
 	}	
 	
 	//Re-evaluate what categories are current
-	public static boolean refreshCategories() {
-		return true;
+	public static void refreshCategories() {
+
 	}
 
 	//Returns the list of categories being used (have stuff in them)
-	public static Category[] getCurrentCategories() {
+	public static ArrayList<Category> getCurrentCategories() {
 		return currentCategories;
 	}
 	
 	//Returns the list of all existing categories
-	public static Category[] getAllCategories() {
+	public static ArrayList<Category> getAllCategories() {
 		return allCategories;
 	}
-
-	public static 
+}

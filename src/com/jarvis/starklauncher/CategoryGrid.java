@@ -26,12 +26,16 @@ import java.util.Collections;
 
 import com.jarvis.starklauncher.R;
 
-public class CategoryScreen extends RelativeLayout {
+public class CategoryGrid extends GridView {
 	private static final String TAG = "CategoryGrid";
 
-	GridView categoryGrid = (GridView) findViewById(R.id.category_listing);
-	grid.setAdapter(new CategoryAdapter(this));
+	private ArrayList<Category> categories;
 
-	Dockbar dock = (Dockbar) findViewById(R.id.shortcut_dock);
-	
-}	
+	public CategoryGrid(Context context) {
+		super(context);
+		categories = CategoryLists.getCurrentCategories();
+		setAdapter(new CategoryAdapter(context, categories);
+	}
+
+
+}

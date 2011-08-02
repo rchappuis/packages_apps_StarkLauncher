@@ -33,7 +33,8 @@ public class Dockbar extends GridView {
 	private ArrayList<ApplicationInfo> appInfos = new ArrayList<ApplicationInfo>();
 	
 	public Dockbar(Context context) {
-		for(CharSequence packageName : getSelectedApps())
+		super(context);
+		for(CharSequence packageName : HUD.getSelectedApps())
 			appInfos.add(PackageManager.getApplicationInfo(packageName, 0);	
 
 		setAdapter(new DockAdapter(getContext(), appInfos));
